@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title Backbone Facter
+    %meta{:name => "description", :content => "A simple application that demonstrates usage of Backbone JS"}
+    %meta{:name => "author", :content => "Jeff Weiss"}
+    = stylesheet_link_tag     "http://fonts.googleapis.com/css?family=Montserrat"
+    = javascript_include_tag  "javascript/jquery.js",
+                              "javascript/underscore.js",
+                              "javascript/backbone.js",
+                              "javascript/handlebars.js",
+                              "javascript/models/search.js",
+                              "javascript/views/searchView.js",
+                              "javascript/views/factsView.js",
+                              "javascript/views/alternateView.js",
+                              "javascript/facter.js"
+
+  %body
+
+    #stage
+      = haml :search
+      = haml :results
+
+    = haml :footer

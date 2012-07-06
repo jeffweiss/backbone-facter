@@ -3,6 +3,7 @@ require 'sinatra/static_assets'
 require 'haml'
 require 'json'
 require 'facter'
+require 'fact_getter'
 
 use Rack::Session::Pool, :expire_after => 2592000
 
@@ -39,5 +40,11 @@ post '/search' do
     facts[fact_name] = exact_fact unless exact_fact.nil?
   end
   
+  facts.to_json
+end
+
+get '/fact/:fact' do
+  facts = FactGetter.query_fact params[:fact]
+  pp facts
   facts.to_json
 end

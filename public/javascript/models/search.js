@@ -23,9 +23,8 @@ $(function() {
 			if (_fns.length < 3) return;
 			
 			$.ajax({
-				url: "/search",
-				type: "POST",
-				data: {fact_name_search: _fns},
+				url: "/fact/" + _fns,
+				type: "GET",
 				success: function(response) {
 					var json = $.parseJSON(response);
 					
